@@ -26,7 +26,12 @@ def esc(text: str) -> str:
 
 def font():
     # Match libass's available fallback in minimal Linux render environments.
-    for path in ['/usr/share/fonts/google-noto-vf/NotoSans[wght].ttf', '/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf']:
+    for path in [
+        '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',
+        '/usr/share/fonts/google-noto-vf/NotoSans[wght].ttf',
+        '/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf',
+        '/home/xoloteach/.local/share/fonts/Montserrat-ExtraBold.ttf'
+    ]:
         if Path(path).exists(): return ImageFont.truetype(path, 54)
     raise SystemExit('No usable sans-serif caption font found')
 
